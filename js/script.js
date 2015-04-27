@@ -1,6 +1,8 @@
 window.onload = function() {
 	firstScene();
 	//secondScene();
+	//thirdScene();
+	//fourthScene();
 }
 
 function firstScene() {
@@ -69,6 +71,10 @@ function secondScene() {
 	removeClass(document.getElementById('car1'), 'state1');
 	addClass(document.getElementById('car1'), 'state2');
 
+	setTimeout(function () {
+		addClass(document.getElementById('car1'), 'stopped');
+	}, 900);
+
 	setTimeout(function () { 
 		removeClass(document.querySelector('.line2_1'), 'state2');
 		addClass(document.querySelector('.line2_1'), 'state3');
@@ -84,6 +90,7 @@ function secondScene() {
 
 	setTimeout(function () { 
 		removeClass(document.getElementById('car1'), 'state2');
+		removeClass(document.getElementById('car1'), 'stopped');
 		addClass(document.getElementById('car1'), 'state3');
 	}, 2000);
 
@@ -92,11 +99,65 @@ function secondScene() {
 		addClass(document.getElementById('back1'), 'state3');
 	}, 2000);
 
-	
+	setTimeout(function () { 
+		thirdScene();
+	}, 3000);
 
 
 }
 
+function thirdScene() {
+	removeClass(document.getElementById('back2'), 'state1');
+	addClass(document.getElementById('back2'), 'state2');
+
+	setTimeout(function () { 
+		removeClass(document.querySelector('.line3_1'), 'state1');
+		addClass(document.querySelector('.line3_1'), 'state2');
+	}, 0);
+	setTimeout(function () { 
+		removeClass(document.querySelector('.line3_2'), 'state1');
+		addClass(document.querySelector('.line3_2'), 'state2');
+	}, 100);
+
+	setTimeout(function () { 
+		fourthScene();
+	}, 3000);
+}
+
+function fourthScene() {
+	removeClass(document.getElementById('scene3'), 'state1');
+	addClass(document.getElementById('scene3'), 'state2');
+	setTimeout(function () { 
+		resetAll();
+	}, 1000);
+}
+
+function resetAll() {
+	var lines = document.querySelectorAll('.line');
+	for(var i=0; i<lines.length; i++) {
+		removeClass(lines[i], 'state2');
+		removeClass(lines[i], 'state3');
+		addClass(lines[i], 'state1');
+	}
+
+	var els = document.querySelectorAll('.state3, .state2');
+	for(var i=0; i<els.length; i++) {
+		removeClass(els[i], 'state2');
+		removeClass(els[i], 'state3');
+		addClass(els[i], 'state1');
+	}
+	
+	removeClass(document.getElementById('scene3'), 'state1');
+	addClass(document.getElementById('scene3'), 'state2');
+	setTimeout(function () { 
+		removeClass(document.getElementById('scene3'), 'state2');
+		addClass(document.getElementById('scene3'), 'state1');
+	}, 3000);
+	setTimeout(function () { 
+		firstScene();
+	}, 3500);
+
+}
 
 
 function addClass(el, className) {
