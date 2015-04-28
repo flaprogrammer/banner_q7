@@ -14,6 +14,13 @@ body {
 	overflow: hidden;
 }
 
+.razver {
+	position: absolute;
+	bottom: 18px;
+	left: 102px;
+	z-index: 100;
+}
+
 .scene1 {
 	//display: none;
 }
@@ -49,10 +56,9 @@ body {
 	width: 529px;
 	height: 410px;
 	position: absolute;
-	bottom: 29px;
-	right: 62px;
-	transition: all 0.7s linear;
-	
+	bottom: 28px;
+	right: 33px;
+	transition: all 1s ease;
 }
 
 .back1.state1 {
@@ -69,74 +75,30 @@ body {
 
 .back1.state3 {
 	transform: translateX(600px);
+	transition: all 0.5s ease-in;
 }
 
 .back1.state3 .img {
 	background-position: -371px 0px; 
 }
 
-	.back1 .img {
-		position: relative;
-		z-index: 3;
-		width: 100%;
-		height: 100%;
-		background: url('../back1.jpg');
-		background-position: 529px 0px; 
-		transition: all 0.7s linear;
-	}
-
-	.back1 .corner {
-		position: absolute;
-		z-index: 10;
-		width: 0;
-		height: 0;
-		border-style: solid;
-
-	}
-	.back1 .corner1 {
-		top:0;
-		left: 0;
-		border-width: 126px 230px 0 0;
-		border-color: #ffffff transparent transparent transparent;
-	}
-	.back1 .corner2{
-		top:0;
-		right: 0;
-		border-width: 0 150px 283px 0;
-		border-color: transparent #ffffff transparent transparent;
-	}
-	.back1 .corner3{
-		bottom: 0;
-		left: 0;
-		border-width: 284px 0 0 151px;
-		border-color: transparent transparent transparent #ffffff;
-	}
-	.back1 .corner4{
-		bottom: 0;
-		right: 0;
-		border-width: 0 0 127px 229px;
-		border-color: transparent transparent #ffffff transparent;
-	}
-
 .lines1 {
-	transform: rotate(-8deg);
+	transform: rotate(-5deg);
 }
 
 .lines2 {
-	transform: rotate(-8deg);
+	transform: rotate(-5deg);
 }
 
 .lines3 {
-	transform: rotate(-8deg);
+	transform: rotate(-5deg);
 	position: absolute;
 	top: 0;
 }
 
 .line {
 	position: absolute;
-	transform: rotate(8deg);
 	transition: all 0.7s ease-out;
-
 }
 
 .line.state1 {
@@ -144,9 +106,11 @@ body {
 }
 .line.state2 {
 	transform: translateX(0px) rotate(8deg);
+	transition: all 0.8s ease-out;
 }
 .line.state3 {
 	transform: translateX(350px) rotate(8deg);
+	transition: all 0.3s ease-in;
 }
 
 .line1_1 {
@@ -186,8 +150,8 @@ body {
 
 .car1 {
 	position: absolute;
-	top: 357px;
-	left: 27px;
+	top: 352px;
+	left: 7px;
 	transition: all 0.9s ease-out;
 }
 
@@ -197,11 +161,31 @@ body {
 
 .car1.state2 {
 	transform: translate(0,0) scale(1);
+	
 }
 
+.car1.state2 .car1_wrap {
+	transform: translate(20px,5px);
+	//animation: carmove 2s ease-out forwards;
+}
+
+@keyframes carmove {
+  0% {
+		transform: translate(0,0);
+    }
+    100% {
+		transform: translate(20px,5px);
+    }
+}
+
+
 .car1.state3 {
-	transform: translate(300px, 30px);
-	transition: all 1s ease-in;
+	transform: translate(300px, 30px) scale(1.3);
+	transition: all 0.5s ease-in;
+}
+
+.car1.state3 .car1_wrap {
+	transform: translate(20px,5px);
 }
 
 
@@ -223,15 +207,29 @@ body {
 	transform: skew(-54deg, 68deg)
 }
 
-.car1 .wheel2, .car1 .wheel1 {
+.car1.state2 .wheel2, .car1.state2 .wheel1 {
 
 	width: 100%;
 	height: 100%;
-	animation: move 1s infinite linear;
+	animation: move 0.9s ease-out;
+}
+
+.car1.state3 .wheel2, .car1.state3 .wheel1 {
+
+	width: 100%;
+	height: 100%;
+	animation: move 0.9s ease-out;
 }
 
 .car1.stopped .wheel2, .car1.stopped .wheel1 {
-	animation: none;
+	animation: moveSlow 2s ease-out;
+}
+
+
+@keyframes moveSlow {
+    100% {
+		transform: rotate(0deg);
+    }
 }
 
 
@@ -258,10 +256,10 @@ body {
 	position: relative;
 	width: 525px;
 	height: 352px;
-	top: 194px;	
+	top: 186px;	
 	left: -28px;
 	overflow: hidden;
-	transition: all 0.7s linear;
+	transition: all 1.3s ease;
 	background: #ffffff;
 	
 }
@@ -270,75 +268,12 @@ body {
 	transform: translateX(-500px);
 }
 
-.back2.state1 .img {
-	background-position: 500px 0px; 
-}
-
 .back2.state2 {
 	transform: translateX(0px);
 }
 .back2.state2 .img {
 	background-position: 0px 0px; 
 }
-
-
-	.back2 .img {
-		position: relative;
-		left: 28px;
-		width: 519px;
-		height: 400px;
-		background: url('../back2.jpg');
-		background-position: 0px 0px;
-		transition: all 0.7s linear;
-	}
-
-	.back2 .corner {
-		position: absolute;
-		z-index: 10;
-		width: 0;
-		height: 0;
-		border-style: solid;
-	}
-
-	.back2 .corner1 {
-		top:0;
-		left: 0;
-		border-style: solid;
-		border-width: 115px 297px 0 0;
-		border-color: #ffffff transparent transparent transparent;
-	}
-	.back2 .corner2{
-		top:0;
-		right: 0;	
-		border-style: solid;
-		border-width: 0 222px 74px 0;
-		border-color: transparent #ffffff transparent transparent;
-		
-	}
-	.back2 .corner3{
-		bottom: 0;
-		right: 0;
-		border-style: solid;
-		border-width: 0 0 158px 498px;
-		border-color: transparent transparent #ffffff transparent;
-		
-	}
-	.back2 .corner4{
-		bottom: 0;
-		right: 0;
-		border-style: solid;
-		border-width: 0 0 281px 185px;
-		border-color: transparent transparent #ffffff transparent;
-	}
-	.back2 .corner5{
-		position: absolute;
-		top: 0;
-		right: -18px;
-		height: 351px;
-		width: 20px;
-		background: #ffffff;
-	}
-
 
 .line3_1 {
 	top: 47px;
@@ -349,17 +284,54 @@ body {
 	left: 14px;
 }
 
+.car2_wrapper {
+	position: absolute;
+	width: 525px;
+	height: 352px;
+	top: 186px;	
+	left: -28px;
+}
+
+
 .car2 {
 	position: absolute;
-	top: 69px;
-	left: 73px;
-	transition: all 0.7s linear;
+	top: 80px;
+	left: -51px;
+	transition: transform 0.7s linear,
+		opacity 0.4s 0.3s linear;
 }
 
-.back2.state1 .car2 {
-	transform: translateX(450px) scale(0.5);
+.car2.state1 {
+	transform: translate(0px, -50px) scale(0);
+	opacity: 0;
 }
 
-.back2.state2 .car2 {
-	transform: translateX(0px) scale(1);
+.car2.state2 {
+	transform: translate(0px, 0px) scale(1);
+	opacity: 1;
+}
+
+
+.spriteJpg {
+    background-image: url(../spritesheet.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.sprite-b1 {
+    width: 490px;
+    height: 409px;
+    background-position: -5px -5px;
+}
+
+.sprite-b2 {
+    width: 459px;
+    height: 318px;
+    background-position: -505px -5px;
+}
+
+.sprite-logo {
+    width: 300px;
+    height: 29px;
+    background-position: -505px -333px;
 }

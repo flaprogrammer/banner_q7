@@ -68,40 +68,42 @@ function secondScene() {
 		addClass(document.querySelector('.line2_3'), 'state2');
 	}, 200);
 
-	removeClass(document.getElementById('car1'), 'state1');
-	addClass(document.getElementById('car1'), 'state2');
+	setTimeout(function () {
+		removeClass(document.getElementById('car1'), 'state1');
+		addClass(document.getElementById('car1'), 'state2');
+	}, 600);
 
 	setTimeout(function () {
 		addClass(document.getElementById('car1'), 'stopped');
-	}, 900);
+	}, 900+600);
 
 	setTimeout(function () { 
 		removeClass(document.querySelector('.line2_1'), 'state2');
 		addClass(document.querySelector('.line2_1'), 'state3');
-	}, 2000);
+	}, 2600);
 	setTimeout(function () { 
 		removeClass(document.querySelector('.line2_2'), 'state2');
 		addClass(document.querySelector('.line2_2'), 'state3');
-	}, 2100);
+	}, 2700);
 	setTimeout(function () { 
 		removeClass(document.querySelector('.line2_3'), 'state2');
 		addClass(document.querySelector('.line2_3'), 'state3');
-	}, 2200);
+	}, 2800);
 
 	setTimeout(function () { 
 		removeClass(document.getElementById('car1'), 'state2');
 		removeClass(document.getElementById('car1'), 'stopped');
 		addClass(document.getElementById('car1'), 'state3');
-	}, 2000);
+	}, 3100);
 
 	setTimeout(function () { 
 		removeClass(document.getElementById('back1'), 'state2');
 		addClass(document.getElementById('back1'), 'state3');
-	}, 2000);
+	}, 2600);
 
 	setTimeout(function () { 
 		thirdScene();
-	}, 3000);
+	}, 3800);
 
 
 }
@@ -109,6 +111,8 @@ function secondScene() {
 function thirdScene() {
 	removeClass(document.getElementById('back2'), 'state1');
 	addClass(document.getElementById('back2'), 'state2');
+	removeClass(document.querySelector('.car2_wrapper'), 'state1');
+	addClass(document.querySelector('.car2_wrapper'), 'state2');
 
 	setTimeout(function () { 
 		removeClass(document.querySelector('.line3_1'), 'state1');
@@ -118,6 +122,11 @@ function thirdScene() {
 		removeClass(document.querySelector('.line3_2'), 'state1');
 		addClass(document.querySelector('.line3_2'), 'state2');
 	}, 100);
+
+	setTimeout(function () { 
+		removeClass(document.getElementById('car2'), 'state1');
+		addClass(document.getElementById('car2'), 'state2');
+	}, 0);
 
 	setTimeout(function () { 
 		fourthScene();
